@@ -61,23 +61,8 @@ if __name__ == "__main__":
                 tc.dropout_keep_prob : 0.8
                 }
 
-        logging.debug("X shape ")
-        logging.debug(X.shape)
-        logging.debug("y shape ")
-        logging.debug(y.shape)
-        logging.debug(X)
-        logging.debug(y)
         train_step,acc = session.run([tc.train_step,tc.accuracy],feed_dict=feed_dict)
         tcx,tcy = session.run([tc.x,tc.y],feed_dict=feed_dict)
-        logging.debug("tcx shape ")
-        logging.debug(tcx.shape)
-        logging.debug("tcy shape ")
-        logging.debug(tcy.shape)
-        logging.debug(tcx)
-        logging.debug(tcy)
-        #logging.info(y)
-        #logging.info(tcy)
-        #logging.info("-------")
         if step % 200 == 0:
             logging.info("step %d,acc:%.3lf" % (step,acc))
 
