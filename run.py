@@ -1,10 +1,17 @@
-from model import *
+import argparse
 from  data_handle import *
 import tensorflow as tf
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description = "ted class")
+    parser.add_argument("-m","--model",type=str,default="basic",help="basic model or lstm")
+    args = parser.parse_args()
+    if args.model == "basic":
+        from model import *
+    else :
+        from lstm import *
     #xh = XmlHander("data/ted_zh-cn-20160408.xml")
     # 训练和预测的预料
     corpus = "data/ted_en-20160408.xml"
@@ -36,7 +43,10 @@ if __name__ == "__main__":
 
     # 4 初始化 model 模型
     logging.info("init model")
-    tc = TextClass(emb_size=emb_size, vocab_size=vb_size, sentence_len=256, class_num=8)
+    batch_size = 128
+    #sentence_len = 256
+    sentence_len = 128
+    tc = TextClass(emb_size=emb_size, vocab_size=vb_size, sentence_len=sentence_len, class_num=8, batch_size=batch_size)
 
     # 5 session
     logging.info("init session")
@@ -52,9 +62,9 @@ if __name__ == "__main__":
 
     # 7 train
     logging.info("train")
-    ds = DataShuffle(corpus,vocab_file,sentence_len=256)
+    ds = DataShuffle(corpus,vocab_file,sentence_len=sentence_len)
     for step in range(10000):
-        X,y =  ds.get_batch_data()
+        X,y =  ds.get_batch_data(batch_size=batch_size)
         feed_dict = {
                 tc.input_x : X,
                 tc.input_y : y,

@@ -1,6 +1,6 @@
 import tensorflow as tf
 import sklearn
-
+from tensorflow.contrib import rnn
 class TextClass():
     def __init__(self,emb_size,vocab_size,sentence_len,class_num,batch_size):
         """
@@ -19,11 +19,14 @@ class TextClass():
         self.emb_input = tf.placeholder(tf.float32,[self.vocab_size,self.emb_size],name="emb_input")
         self.emb_init = self.emb.assign(self.emb_input)
 
-        # 线性和求平均
-        self.x = tf.reduce_mean(tf.nn.embedding_lookup(self.emb,self.input_x),axis=1)
+        self.x_emb = tf.nn.embedding_lookup(self.emb,self.input_x)
+        #self.x = tf.reduce_mean(tf.nn.embedding_lookup(self.emb,self.input_x),axis=1)
 
         self.W = tf.Variable(tf.random_uniform([self.emb_size,self.class_num],-1.0,1.0))
         self.b = tf.Variable(tf.zeros(self.class_num))
+
+        # lstm
+        self.x = self.lstm(self.x_emb)
 
         y_ = self.input_y
         self.y = tf.matmul(self.x,self.W) + self.b
@@ -33,8 +36,22 @@ class TextClass():
         self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
 
+    def lstm(self,x,layer_num=2):
+        lstm_cell = rnn.BasicLSTMCell(num_units=self.emb_size, forget_bias=1.0, state_is_tuple=True)
+        lstm_cell = rnn.DropoutWrapper(cell=lstm_cell, input_keep_prob=1.0, output_keep_prob=self.dropout_keep_prob)
+        mlstm_cell = rnn.MultiRNNCell([lstm_cell] * layer_num, state_is_tuple=True)
+        init_state = mlstm_cell.zero_state(self.batch_size, dtype=tf.float32)
 
-
-
-
+        outputs = list()
+        state = init_state
+        h_state = []
+        timestep_size = self.sentence_len
+        with tf.variable_scope('RNN'):
+            for timestep in range(timestep_size):
+                if timestep > 0:
+                    tf.get_variable_scope().reuse_variables()
+                (cell_output, state) = mlstm_cell(x[:, timestep, :], state)
+                outputs.append(cell_output)
+                h_state = outputs[-1]
+        return h_state
 
