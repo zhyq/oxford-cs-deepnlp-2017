@@ -11,6 +11,7 @@ oxford的deepnlp的文本分类实验
 基本模型:model.py
 * 1 加载使用text8语料预先训练好的词向量，采用加权平均作为每篇文章的词向量
 * 2 采用softmax 分类。 多标签转为多分类问题 ('ooo','Too','oEo','ooD','TEo','ToD','oED','TED' 对应 1-8 8分类)
+
 lstm模型:lstm.py
 * 1 采用text8语料预先训练好的词向量，然后用lstm做特征帅选
 * 2 采用softmax分类。
