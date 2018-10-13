@@ -2,6 +2,7 @@
 
 ### run
 `python run.py -m baisc` 使用预先训练的word2vec词向量做线性平均加之后，做线性分类
+
 `python run.py -m lstm`  使用预先训练的word2vec词向量，采用lstm深度学习模型分类
 
 ### 说明
