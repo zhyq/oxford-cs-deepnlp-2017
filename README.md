@@ -6,9 +6,9 @@
    见课程实验要求[实验描述](https://github.com/oxford-cs-deepnlp-2017/practical-2)
 
 ### 如何运行
-`python run.py -m baisc` 使用预先训练的word2vec词向量做线性平均加之后，做线性分类
+`python run.py -m baisc` 使用预先训练的word2vec词向量做线性加平均作为输入进行分类 acc:99+%
 
-`python run.py -m lstm`  使用预先训练的word2vec词向量，采用lstm深度学习模型分类
+`python run.py -m lstm`  使用预先训练的word2vec词向量，采用lstm深度学习模型分类 acc:99.9%
 
 ### 说明
 
