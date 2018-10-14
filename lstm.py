@@ -15,7 +15,8 @@ class TextClass():
         self.input_y = tf.placeholder(tf.int32,[None,self.class_num],name="input_y")
         self.dropout_keep_prob = tf.placeholder(tf.float32,name="dropout_keep_prob")
 
-        self.emb = tf.Variable(tf.random_uniform(shape=[self.vocab_size,self.emb_size],minval=-1.0,maxval=1.0,dtype=tf.float32))
+        self.emb = tf.Variable(tf.random_uniform(shape=[self.vocab_size,self.emb_size],minval=-1.0,maxval=1.0,dtype=tf.float32),trainable=True)
+        #self.emb = tf.Variable(tf.random_uniform(shape=[self.vocab_size,self.emb_size],minval=-1.0,maxval=1.0,dtype=tf.float32),trainable=False)
         self.emb_input = tf.placeholder(tf.float32,[self.vocab_size,self.emb_size],name="emb_input")
         self.emb_init = self.emb.assign(self.emb_input)
 

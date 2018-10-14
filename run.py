@@ -45,7 +45,7 @@ if __name__ == "__main__":
     logging.info("init model")
     batch_size = 128
     #sentence_len = 256
-    sentence_len = 128
+    sentence_len = 64
     tc = TextClass(emb_size=emb_size, vocab_size=vb_size, sentence_len=sentence_len, class_num=8, batch_size=batch_size)
 
     # 5 session
