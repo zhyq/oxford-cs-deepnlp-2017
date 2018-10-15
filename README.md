@@ -16,24 +16,23 @@
 `tensorboard -logdir logs/` tensorboard 可视化 
  
  acc效果可视化
-![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/acc.png)
-
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/acc.png)
 ### 模型说明
 
 基本模型:model.py
 * 1 加载使用text8语料预先训练好的词向量，采用加权平均作为每篇文章的词向量
 * 2 采用softmax 分类。 多标签转为多分类问题 ('ooo','Too','oEo','ooD','TEo','ToD','oED','TED' 对应 1-8 8分类)
-![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/model.png)
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/model.png)
 
 lstm模型:lstm.py
 * 1 采用text8语料预先训练好的词向量，然后用lstm做特征筛选
 * 2 采用softmax分类。
-![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/lstm.png)
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/lstm.png)
 
 cnn模型:cnn.py
 * 1 采用text8训练好的词向量，然后用卷积三层卷积
 * 2 采用softmax分类
-![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/cnn.png)
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/cnn.png)
 
 ### 文件组成
  
