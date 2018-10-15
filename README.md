@@ -29,6 +29,7 @@ cnn模型:cnn.py
  * `data` 数据文件 ted 的xml文件 和 基于 text8训练好的100维词向量
  * `model.py` word2vec词向量平均和作为特征做分类模型
  * `lstm.py`  lstm模型
+ * `cnn.py` cnn模型
  * `run.py` 主流程文件
  * `data_helper.py` 数据处理文件 包括 word2vec模型加载 词和id相互转换 xml解析等
 
