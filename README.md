@@ -6,7 +6,8 @@
    见课程实验要求[实验描述](https://github.com/oxford-cs-deepnlp-2017/practical-2)
 
 ### 如何运行
-  运行 run.py -m 指定哪个模型 -l 指定模型运行时 tensorboard可视化数据的输出路径
+运行 run.py -m 指定哪个模型 -l 指定日志路径
+
 `python run.py -m baisc -l logs/basic_log ` 基本模型 使用预先训练的word2vec词向量做线性加平均作为输入进行分类 acc:99+%
 
 `python run.py -m lstm -l logs/lstm_log `  lstm模型 使用预先训练的word2vec词向量，采用lstm深度学习模型分类 acc:99.9%
