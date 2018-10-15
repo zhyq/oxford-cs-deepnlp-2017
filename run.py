@@ -8,10 +8,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = "ted class")
     parser.add_argument("-m","--model",type=str,default="basic",help="basic model or lstm")
     args = parser.parse_args()
-    if args.model == "basic":
-        from model import *
-    else :
+    if args.model == "lstm":
         from lstm import *
+    elif args.model == "cnn":
+        from cnn import *
+    else :
+        from model import *
     #xh = XmlHander("data/ted_zh-cn-20160408.xml")
     # 训练和预测的预料
     corpus = "data/ted_en-20160408.xml"
@@ -72,7 +74,7 @@ if __name__ == "__main__":
                 }
 
         train_step,acc = session.run([tc.train_step,tc.accuracy],feed_dict=feed_dict)
-        tcx,tcy = session.run([tc.x,tc.y],feed_dict=feed_dict)
+        #tcx,tcy = session.run([tc.x,tc.y],feed_dict=feed_dict)
         if step % 200 == 0:
             logging.info("step %d,acc:%.3lf" % (step,acc))
 
