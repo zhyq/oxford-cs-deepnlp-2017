@@ -78,7 +78,7 @@ cnn模型:cnn.py
       ```
       x: 用词向量矩阵表示 [x = matrix(emb(word1),emb(word2)...)]
       
-      x' = cnn(x)   [对输入的x做lstm层转换]
+      x' = cnn(x)   [对输入的x做了高度分为为 3 4 5 的三层卷积转换，然后concat作为特征输出]
       
       y = softmax(wx'+b)
       
