@@ -7,6 +7,7 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = "ted class")
     parser.add_argument("-m","--model",type=str,default="basic",help="basic model or lstm")
+    parser.add_argument("-l","--logs",type=str,default="logs",help="tensorboard logs")
     args = parser.parse_args()
     if args.model == "lstm":
         from lstm import *
@@ -50,9 +51,13 @@ if __name__ == "__main__":
     sentence_len = 64
     tc = TextClass(emb_size=emb_size, vocab_size=vb_size, sentence_len=sentence_len, class_num=8, batch_size=batch_size)
 
+
     # 5 session
     logging.info("init session")
     session = tf.Session()
+    # tensorboard
+    writer=tf.summary.FileWriter(args.logs,session.graph)
+
     session.run(tf.global_variables_initializer())
 
     # 6 把 word2vec 模型加载到 model的emb中
@@ -73,13 +78,13 @@ if __name__ == "__main__":
                 tc.dropout_keep_prob : 0.8
                 }
 
-        train_step,acc = session.run([tc.train_step,tc.accuracy],feed_dict=feed_dict)
-        #tcx,tcy = session.run([tc.x,tc.y],feed_dict=feed_dict)
+        summary,train_step,acc = session.run([tc.merged,tc.train_step,tc.accuracy],feed_dict=feed_dict)
+        writer.add_summary(summary,step)
         if step % 200 == 0:
             logging.info("step %d,acc:%.3lf" % (step,acc))
 
 
-
+    writer.close()
 
 
 

@@ -6,24 +6,35 @@
    见课程实验要求[实验描述](https://github.com/oxford-cs-deepnlp-2017/practical-2)
 
 ### 如何运行
-`python run.py -m baisc` 基本模型 使用预先训练的word2vec词向量做线性加平均作为输入进行分类 acc:99+%
+  运行 run.py -m 指定哪个模型 -l 指定模型运行时 tensorboard可视化数据的输出路径
+`python run.py -m baisc -l logs/basic_log ` 基本模型 使用预先训练的word2vec词向量做线性加平均作为输入进行分类 acc:99+%
 
-`python run.py -m lstm`  lstm模型 使用预先训练的word2vec词向量，采用lstm深度学习模型分类 acc:99.9%
+`python run.py -m lstm -l logs/lstm_log `  lstm模型 使用预先训练的word2vec词向量，采用lstm深度学习模型分类 acc:99.9%
 
-`python run.py -m cnn`   cnn模型 使用预先训练的word2vec词向量，采用cnn模型分类 acc:99.9%
-### 说明
+`python run.py -m cnn -l logs/cnn_log`   cnn模型 使用预先训练的word2vec词向量，采用cnn模型分类 acc:99.9%
+
+`tensorboard -logdir logs/` tensorboard 可视化 
+ 
+ acc效果可视化
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/acc.png)
+
+### 模型说明
 
 基本模型:model.py
 * 1 加载使用text8语料预先训练好的词向量，采用加权平均作为每篇文章的词向量
 * 2 采用softmax 分类。 多标签转为多分类问题 ('ooo','Too','oEo','ooD','TEo','ToD','oED','TED' 对应 1-8 8分类)
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/model.png)
 
 lstm模型:lstm.py
 * 1 采用text8语料预先训练好的词向量，然后用lstm做特征筛选
 * 2 采用softmax分类。
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/lstm.png)
 
 cnn模型:cnn.py
 * 1 采用text8训练好的词向量，然后用卷积三层卷积
 * 2 采用softmax分类
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/png/cnn.png)
+
 ### 文件组成
  
  * `data` 数据文件 ted 的xml文件 和 基于 text8训练好的100维词向量
