@@ -17,6 +17,10 @@
  
  acc效果可视化
 ![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/acc.png)
+ histogram
+![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/histogram.png)
+
+
 ### 模型说明
 
 基本模型:model.py
