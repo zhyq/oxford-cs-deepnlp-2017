@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub issues](https://img.shields.io/github/issues/zhyq/oxford-cs-deepnlp-2017_practical-2.svg)](https://github.com/zhyq/oxford-cs-deepnlp-2017_practical-2/issues)
-[![GitHub stars](https://img.shields.io/github/stars/zhyq/oxford-cs-deepnlp-2017_practical-2.svg)]
+![GitHub stars](https://img.shields.io/github/stars/zhyq/oxford-cs-deepnlp-2017_practical-2.svg)
 
   
   oxford的deepnlp的文本分类实验
