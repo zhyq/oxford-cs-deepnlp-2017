@@ -10,8 +10,8 @@
   中文说明[中文](https://github.com/zhyq/oxford-cs-deepnlp-2017_practical-2/blob/master/README_zh.md)
 
 
-### parctical description
-   details[description](https://github.com/oxford-cs-deepnlp-2017/practical-2)
+### Practical description
+   details:[description](https://github.com/oxford-cs-deepnlp-2017/practical-2)
 
 ### Training
 train run.py -m [basic or lstm or cnn] -l logdir
@@ -30,7 +30,7 @@ train run.py -m [basic or lstm or cnn] -l logdir
 ![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/histogram.png)
 
 
-### model description
+### Model description
 
 basic:model.py
 * 1 load text8 pretrained word vectors，
@@ -47,7 +47,7 @@ cnn model:cnn.py
 * 2 softmax
 ![image](https://raw.githubusercontent.com/zhyq/oxford-cs-deepnlp-2017_practical-2/master/png/cnn.png)
 
-### file description
+### File description
  
  * `data` data file : ted xml corpus , text8 ,word vectors
  * `model.py` basic model
