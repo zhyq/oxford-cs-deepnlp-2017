@@ -6,7 +6,8 @@
 
   
   oxford的deepnlp的文本分类实验
-  English description[English](https://github.com/zhyq/oxford-cs-deepnlp-2017_practical-2/README.md)
+  English description[English](https://github.com/zhyq/oxford-cs-deepnlp-2017_practical-2/blob/master/README.md)
+  
   采用向量平均加 lstm cnn 三种方法实现，对比效果分析
 
 ### 实验说明
