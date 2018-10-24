@@ -7,11 +7,11 @@
   
   oxford deepnlp practical-2 text class
 
-  中文说明[中文](https://github.com/zhyq/oxford-cs-deepnlp-2017_practical-2/blob/master/README_zh.md)
+  [中文](https://github.com/zhyq/oxford-cs-deepnlp-2017_practical-2/blob/master/README_zh.md)
 
 
 ### Practical description
-   details:[description](https://github.com/oxford-cs-deepnlp-2017/practical-2)
+   details:[description](https://github.com/zhyq/oxford-cs-deepnlp-2017_practical-2/blob/master/desc.md)
 
 ### Training
 train run.py -m [basic or lstm or cnn] -l logdir
